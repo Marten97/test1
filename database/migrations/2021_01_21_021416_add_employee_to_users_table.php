@@ -25,8 +25,12 @@ class AddEmployeeToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        if (Schema::hasColumn('users', 'isEmp')) {
+
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('isEmp');
+            });
+            
+        }
     }
 }

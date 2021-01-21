@@ -30,11 +30,11 @@ Route::group(['middleware' => ['isadmin']], function () {
     
     Route::get('company', [CompanyController::class, 'index'])->name('company');
     Route::post('add-update-company', [CompanyController::class, 'store']);
-    Route::post('edit-company', [CompanyController::class, 'edit']);
+    Route::post('update-company', [CompanyController::class, 'update']);
     Route::post('delete-company', [CompanyController::class, 'destroy']);
 
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee');
     Route::post('store-employee', [EmployeeController::class, 'store']);
-    Route::post('edit-employee', [EmployeeController::class, 'edit']);
+    Route::post('update-employee', [EmployeeController::class, 'update']);
     Route::post('delete-employee', [EmployeeController::class, 'destroy']);
 });

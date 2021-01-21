@@ -56,7 +56,7 @@ class EmployeeController extends Controller
 
     }
 
-    public function edit(Request $request)
+    public function update(Request $request)
     {
         $where = array('id' => $request->id);
         $employee = Employee::where($where)->first();

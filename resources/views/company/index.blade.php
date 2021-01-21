@@ -163,7 +163,7 @@
                     // ajax
                     $.ajax({
                         type: "POST",
-                        url: "{{ url('edit-company') }}",
+                        url: "{{ url('update-company') }}",
                         data: {
                             id: id
                         },

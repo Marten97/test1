@@ -53,7 +53,7 @@ class CompanyController extends Controller
         return Response()->json($company);
     }
 
-    public function edit(Request $request)
+    public function update(Request $request)
     {
         $where = array('id' => $request->id);
         $company = Company::where($where)->first();

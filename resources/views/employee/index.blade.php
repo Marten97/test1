@@ -146,7 +146,7 @@
     function editFunc(id) {
         $.ajax({
             type: "POST",
-            url: "{{ url('edit-employee') }}",
+            url: "{{ url('update-employee') }}",
             data: {
                 id: id
             },

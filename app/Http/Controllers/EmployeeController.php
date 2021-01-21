@@ -22,7 +22,7 @@ class EmployeeController extends Controller
                 ->addColumn('name', function ($inspection) {
                     return $inspection->full_name;
                 })
-                ->addColumn('action', 'employee-action')
+                ->addColumn('action', 'employee.action')
                 ->rawColumns(['action'])
                 ->addIndexColumn()
                 ->make(true);
@@ -30,7 +30,7 @@ class EmployeeController extends Controller
         }
 
         $companies = Company::latest()->get();
-        return view('employee',[
+        return view('employee.index',[
             'companies' => $companies,
         ]);
     }

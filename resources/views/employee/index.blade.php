@@ -158,6 +158,7 @@
                 $('#first_name').val(res.first_name);
                 $('#last_name').val(res.last_name);
                 $('#company').val(res.company);
+                $('#phone').val(res.phone);
                 $('#email').val(res.email);
             }
         });

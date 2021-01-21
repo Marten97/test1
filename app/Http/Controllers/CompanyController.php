@@ -17,13 +17,13 @@ class CompanyController extends Controller
     {
         if (request()->ajax()) {
             return datatables()->of(Company::select('*'))
-                ->addColumn('action', 'company-action')
+                ->addColumn('action', 'company.action')
                 ->addColumn('logo', 'show-logo')
                 ->rawColumns(['action', 'logo'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('company');
+        return view('company.index');
     }
 
     public function store(Request $request)

@@ -163,7 +163,7 @@
                     // ajax
                     $.ajax({
                         type: "POST",
-                        url: "{{ url('update-company') }}",
+                        url: "{{ route('company.update') }}",
                         data: {
                             id: id
                         },
@@ -190,7 +190,7 @@
                         // ajax
                         $.ajax({
                             type: "POST",
-                            url: "{{ url('delete-company') }}",
+                            url: "{{ route('company.destroy') }}",
                             data: {
                                 id: id
                             },
@@ -213,7 +213,7 @@
 
                     $.ajax({
                         type: 'POST',
-                        url: "{{ url('add-update-company') }}",
+                        url: "{{ route('company.store') }}",
                         data: formData,
                         cache: false,
                         contentType: false,

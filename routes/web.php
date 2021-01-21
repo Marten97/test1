@@ -29,12 +29,12 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::group(['middleware' => ['isadmin']], function () {
     
     Route::get('company', [CompanyController::class, 'index'])->name('company');
-    Route::post('add-update-company', [CompanyController::class, 'store']);
-    Route::post('update-company', [CompanyController::class, 'update']);
-    Route::post('delete-company', [CompanyController::class, 'destroy']);
+    Route::post('store-company', [CompanyController::class, 'store'])->name('company.store');
+    Route::post('update-company', [CompanyController::class, 'update'])->name('company.update');
+    Route::post('delete-company', [CompanyController::class, 'destroy'])->name('company.destroy');
 
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee');
-    Route::post('store-employee', [EmployeeController::class, 'store']);
-    Route::post('update-employee', [EmployeeController::class, 'update']);
-    Route::post('delete-employee', [EmployeeController::class, 'destroy']);
+    Route::post('store-employee', [EmployeeController::class, 'store'])->name('employee.store');
+    Route::post('update-employee', [EmployeeController::class, 'update'])->name('employee.update');
+    Route::post('delete-employee', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 });

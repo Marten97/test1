@@ -146,7 +146,7 @@
     function editFunc(id) {
         $.ajax({
             type: "POST",
-            url: "{{ url('update-employee') }}",
+            url: "{{ route('employee.update') }}",
             data: {
                 id: id
             },
@@ -170,7 +170,7 @@
             // ajax
             $.ajax({
                 type: "POST",
-                url: "{{ url('delete-employee') }}",
+                url: "{{ route('employee.destroy') }}",
                 data: {
                     id: id
                 },
@@ -187,7 +187,7 @@
         var formData = new FormData(this);
         $.ajax({
             type: "POST",
-            url: "{{ url('store-employee') }}",
+            url: "{{ route('employee.store') }}",
             data: formData,
             cache: false,
             contentType: false,

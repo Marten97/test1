@@ -8,7 +8,7 @@
             <h1 class="mdl-card__title-text">Employee table</h1>
         </div>
         <div class="card">
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-bordered" id="ajax-crud-datatable">
                     <thead>
                         <tr>
@@ -50,14 +50,14 @@
                             <label for="name" class="col-sm-2 control-label required">First Name</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="first_name" name="first_name"
-                                    placeholder="Enter Employee First Name" maxlength="50" required="">
+                                    placeholder="First Name" maxlength="50" required="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label required">Last Name</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="last_name" name="last_name"
-                                    placeholder="Enter Employee Last Name" maxlength="50" required="">
+                                    placeholder="Last Name" maxlength="50" required="">
                             </div>
                         </div>
 
@@ -76,14 +76,14 @@
                             <label for="name" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-12">
                                 <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Enter Employee Email" maxlength="50" >
+                                    placeholder="Email" maxlength="50" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Phone</label>
                             <div class="col-sm-12">
                                 <input type="number" class="form-control" id="phone" name="phone"
-                                    placeholder="Enter Employee Phone" >
+                                    placeholder="Phone" >
                             </div>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">

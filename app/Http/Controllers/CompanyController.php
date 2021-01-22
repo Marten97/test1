@@ -19,7 +19,7 @@ class CompanyController extends Controller
             return datatables()->of(Company::select('*'))
                 ->addColumn('action', 'company.action')
                 ->addColumn('logo', 'show-logo')
-                ->rawColumns(['action', 'logo'])
+                ->rawColumns(['action', 'company.image'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -60,10 +60,6 @@ class CompanyController extends Controller
 
     public function update(Request $request)
     {
-        $this->validate($request, [
-            'name'      =>  'required',
-            'logo'      =>  'required',
-        ]);
         $where = array('id' => $request->id);
         $company = Company::where($where)->first();
 

@@ -9,7 +9,7 @@
             <h1 class="mdl-card__title-text">Company table</h1>
         </div>
         <div class="card">
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-bordered" id="datatable-ajax-crud">
                     <thead>
                         <tr>
@@ -157,8 +157,7 @@
             $('#ajax-company-model').modal('show');
             $("#logo").attr("required", "true");
             $('#id').val('');
-            $('#preview-logo').attr('src',
-                'https://www.riobeauty.co.uk/images/product_logo_not_found.gif');
+            $('#preview-logo').attr('src','https://www.riobeauty.co.uk/images/product_logo_not_found.gif');
 
 
         });

@@ -31,7 +31,6 @@ class CompanyController extends Controller
 
         $this->validate($request, [
             'name'      =>  'required',
-            'logo'      =>  'required',
         ]);
 
         $companyId = $request->id;

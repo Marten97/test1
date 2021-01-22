@@ -29,6 +29,11 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request, [
+            'name'      =>  'required',
+            'logo'      =>  'required',
+        ]);
+
         $companyId = $request->id;
 
         if ($companyId) {
@@ -55,6 +60,10 @@ class CompanyController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'name'      =>  'required',
+            'logo'      =>  'required',
+        ]);
         $where = array('id' => $request->id);
         $company = Company::where($where)->first();
 

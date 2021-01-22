@@ -37,6 +37,11 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'first_name'      =>  'required',
+            'last_name'      =>  'required',
+            'company'         =>  'required',
+        ]);
 
         $employeeId = $request->id;
 
@@ -58,6 +63,12 @@ class EmployeeController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'first_name'      =>  'required',
+            'last_name'      =>  'required',
+            'company'         =>  'required',
+        ]);
+        
         $where = array('id' => $request->id);
         $employee = Employee::where($where)->first();
 

@@ -72,17 +72,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-12 control-label required">Logo</label>
+                        <label class="col-sm-6 control-label required">Logo</label>
                         <div class="col-sm-12 pull-left">
                             <input type="file" class="form-control" id="logo" name="logo">
                         </div>
-                        <div class="col-sm-12 pull-right">
+                        <div class="col-sm-12 pull-right" style="margin-top: 1em; margin-bottom: 1em">
                             <img id="preview-logo" src="https://www.riobeauty.co.uk/images/product_logo_not_found.gif"
                                 alt="preview logo" style="max-height: 50px;">
                         </div>
                     </div>
-
-                    <div class="col-sm-offset-2 col-sm-12">
+                    <br>
+                    <div class="col-sm-offset-2 col-sm-12" style="margin-top: 1em">
                         <button type="submit" class="btn btn-primary" id="btn-save" value="addNewCompany">Save
                             changes
                         </button>

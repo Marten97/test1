@@ -15,10 +15,14 @@ class CompanyController extends Controller
     }
     public function index()
     {
+        $companies = Company::all();
         if (request()->ajax()) {
-            return datatables()->of(Company::select('*'))
+            return datatables()->of($companies)
                 ->addColumn('action', 'company.action')
-                ->addColumn('logo', 'show-logo')
+                ->addColumn('logo', function ($companies) {
+                    $url = "storage/images/$companies->logo";
+                    return $url;
+                })
                 ->rawColumns(['action', 'company.image'])
                 ->addIndexColumn()
                 ->make(true);
@@ -40,8 +44,10 @@ class CompanyController extends Controller
             $company = Company::find($companyId);
 
             if ($request->hasFile('logo')) {
-                $path = $request->file('logo')->store('public/images');
-                $company->logo = $path;
+                $logo = $request->file('logo');
+                $path = $logo->store('public/images');
+                $logoName = $logo->hashName();
+                $company->logo = $logoName;
             }
         } else {
             $path = $request->file('logo')->store('public/images');
@@ -55,6 +61,7 @@ class CompanyController extends Controller
         $company->save();
 
         return Response()->json($company);
+
     }
 
     public function update(Request $request)

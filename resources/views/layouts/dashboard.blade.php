@@ -148,7 +148,7 @@
     @yield('script')
     <!-- endinject -->
 
-    
+
 </body>
 
 </html>

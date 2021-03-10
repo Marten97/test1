@@ -15,10 +15,24 @@ class EmployeeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+
         if (request()->ajax()) {
-            return datatables()->of(Employee::select('*'))
+            if(!empty($request->from_date))
+            {
+                if($request->from_date === $request->to_date){
+                    $employees = Employee::whereDate('created_at','=', $request->from_date)->get();
+                }
+                else{
+                    $employees = Employee::whereBetween('created_at', array($request->from_date, $request->to_date))->get();
+                }
+            }
+            else
+            {
+                $employees = Employee::select('*');
+            }
+            return datatables()->of($employees)
                 ->addColumn('name', function ($inspection) {
                     return $inspection->full_name;
                 })

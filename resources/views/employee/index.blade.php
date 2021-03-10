@@ -12,12 +12,36 @@
                 <table class="table table-bordered" id="ajax-crud-datatable">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Full Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>Email</th>
+                            <th>Company</th>
                             <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control filter-input" placeholder="Search First Name" data-column="0"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control filter-input" placeholder="Search Last Name" data-column="1"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control filter-input" placeholder="Search Email" data-column="2"/>
+                            </td>
+                            <td>
+                                <select data-column="3" class="form-control filter-select">
+                                    <option value="0">Search Company</option>
+                                    @foreach ($companies as $company)
+                                        <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
                 </table>
                 <form method="get" action="{{ route('home') }}">
                     <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal"
@@ -110,23 +134,26 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $('#ajax-crud-datatable').DataTable({
+            var table = $('#ajax-crud-datatable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "",
-                columns: [{
-                        data: 'id',
-                        name: 'id'
+                columns: [
+                    {
+                        data: 'first_name',
+                        name: 'first_name'
                     },
                     {
-                        data: 'name',
-                        name: 'full_name',
-                        searchable: false
-
+                        data: 'last_name',
+                        name: 'last_name'
                     },
                     {
                         data: 'email',
                         name: 'email'
+                    },
+                    {
+                        data: 'company',
+                        name: 'company'
                     },
                     {
                         data: 'action',
@@ -137,6 +164,18 @@
                 order: [
                     [0, 'desc']
                 ]
+            });
+
+            $('.filter-input').keyup(function() {
+                table.column( $ (this).data('column') )
+                .search( $(this).val() )
+                .draw();
+            });
+
+            $('.filter-select').change(function() {
+                table.column( $ (this).data('column') )
+                .search( $(this).val() )
+                .draw();
             });
         });
 
